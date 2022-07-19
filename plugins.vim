@@ -94,7 +94,6 @@ set smartcase
 set noswapfile
 set nobackup
 
-
 set mouse=a
 
 set undofile
@@ -112,8 +111,6 @@ set relativenumber
 set number
 set laststatus=2
 set fileformat=unix
-
-
 syntax enable
 colorscheme onedark
 
@@ -134,6 +131,7 @@ let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 let mapleader=" "
 nnoremap <leader>fe :CocCommand flutter.emulators <CR>
 nnoremap <leader>fd :below new output:///flutter-dev <CR>
+
 map <leader>h :wincmd h <CR>
 map <leader>j :wincmd j <CR>
 map <leader>k :wincmd k <CR>
@@ -240,8 +238,6 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-
-
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
@@ -270,7 +266,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
-
 
 
 " wrap toggle
@@ -341,7 +336,6 @@ function! StartUp()
     end
 endfunction
 autocmd VimEnter * call StartUp()
-
 
 
 " ale
