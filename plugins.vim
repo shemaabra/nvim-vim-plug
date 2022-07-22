@@ -188,9 +188,21 @@ endfunction
 
 nmap <C-P> :FZF<CR>
 
-nmap <leader>gs :G<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gl :diffget //3<CR>
+" Git configurations
+nmap <Leader>ga :Git add .
+nmap <Leader>gc :Git commit -a
+nmap <Leader>go :Git checkout
+nmap <Leader>gd :Git diff %<cr>
+nmap <Leader>gp :Git push<cr>
+nmap <Leader>gl :Git pull<cr>
+" nmap <Leader>gh :Git push heroku main<cr>
+nmap <Leader>gst :Git status<cr>
+nmap <Leader>gss :Git status -s<cr>
+nmap <Leader>gb :Gblame<cr>
+
+" nmap <leader>gs :G<CR>
+" nmap <leader>gh :diffget //2<CR>
+" nmap <leader>gl :diffget //3<CR>
 
 imap <tab> <Plug>(coc-snippets-expand)
 let g:UltiSnipsExpandTrigger = '<Nop>'
