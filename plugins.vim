@@ -11,9 +11,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
      " For Powerline on Vim
      Plug 'powerline/powerline'
 	 Plug 'powerline/powerline-fonts'
-     
+	 Plug 'powerline/fonts'    
 	 " Black Code Formater
-	 Plug 'ambv/black'
      Plug 'elzr/vim-json'
 
 	 Plug 'frazrepo/vim-rainbow'
@@ -59,7 +58,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
      " Dart
      Plug 'dart-lang/dart-vim-plugin'
 
-     " Typescript
+	 " Python
+	 Plug 'deoplete-plugins/deoplete-jedi'
+	 " Typescript
      Plug 'ianks/vim-tsx'
      Plug 'leafgarland/typescript-vim'
 
@@ -82,7 +83,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
      " Theme
      Plug 'morhetz/gruvbox'
-
+	 Plug 'henrynewcomer/vim-theme-papaya'
+     Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
 " Don't add sounds for errors
@@ -109,10 +111,28 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 set relativenumber
 set number
+set nu
 set laststatus=2
 set fileformat=unix
 syntax enable
 colorscheme onedark
+
+set nolazyredraw
+set clipboard=unnamedplus
+set colorcolumn=80
+set signcolumn=yes
+highlight ColorColumn ctermbg=238
+
+set splitbelow
+set splitright
+set tabpagemax=15 "set the maximum number fo tabs to open
+set ai "automic indentation
+set si "smart indentation
+set encoding=utf8
+set updatetime=50                      " Faster completion
+set timeoutlen=500                      " By default timeoutlen is 1000 ms
+
+set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 
 " RainBow Brackets global 
 let g:rainbow_active = 1
@@ -213,6 +233,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-html',
   \ 'coc-json',
+   \ 'coc-python',
   \ ]
 
 let g:NERDTreeGitStatusWithFlags = 1
