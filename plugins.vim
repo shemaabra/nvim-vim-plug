@@ -112,19 +112,19 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set relativenumber
 set number
 set nu
-set laststatus=2
-set fileformat=unix
+" set laststatus=2
+" set fileformat=unix
 syntax enable
 colorscheme onedark
 
-set nolazyredraw
-set clipboard=unnamedplus
-set colorcolumn=80
-set signcolumn=yes
+" set nolazyredraw
+" set clipboard=unnamedplus
+" set colorcolumn=80
+" set signcolumn=yes
 highlight ColorColumn ctermbg=238
 
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 set tabpagemax=15 "set the maximum number fo tabs to open
 set ai "automic indentation
 set si "smart indentation
@@ -177,7 +177,7 @@ nmap <C-P> :FZF<CR>
 
 " Git configurations
 nmap <Leader>ga :Git add .
-nmap <Leader>gc :Git commit -a
+nmap <Leader>gm :Git commit -a
 nmap <Leader>go :Git checkout
 nmap <Leader>gd :Git diff %<cr>
 nmap <Leader>gp :Git push<cr>
