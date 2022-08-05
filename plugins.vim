@@ -22,9 +22,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	"Coc CSS
 	 Plug 'neoclide/coc-css'
+     Plug 'neoclide/coc-highlight' "coc Highliter
  
 	 Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
-	  
+	 Plug 'kqito/vim-easy-replace' 
 	 " VimStatus  Line
      Plug 'vim-airline/vim-airline'
      Plug 'vim-airline/vim-airline-themes'
@@ -69,7 +70,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
      Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
      Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 
-     Plug 'nvim-treesitter/highlight.lua'
+     " Plug 'nvim-treesitter/highlight.lua'
      " Git
      Plug 'tpope/vim-fugitive'
      Plug 'vim-airline/vim-airline'
@@ -116,7 +117,7 @@ set nu
 set laststatus=2
 set fileformat=unix
 syntax enable
-colorscheme tokyonight
+colorscheme onedark
 
 " set nolazyredraw
 " set clipboard=unnamedplus
@@ -146,6 +147,7 @@ map <leader>k :wincmd k <CR>
 map <leader>l :wincmd l <CR>
 
 
+
 nnoremap <C-b> :NERDTreeToggle<CR>
 " nnoremap <C-S-b> :NERDTreeFind<CR>
 
@@ -161,6 +163,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -247,12 +251,12 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 " air-line
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tokyonight' "change airline_theme
+let g:airline_theme='onedark' "change airline_theme
 let g:onedark_termcolors=256
 
 " lightline
 set noshowmode
-let g:lightline = { 'colorscheme': 'tokyonight' }
+let g:lightline = { 'colorscheme': 'onedark' }
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -382,15 +386,3 @@ let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 
 
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-
-" Change the "hint" color to the "orange" color, and make the "error" color bright red
-let g:tokyonight_colors = {
-  \ 'hint': 'orange',
-  \ 'error': '#ff0000'
-\ }
-
-" Load the colorscheme
-colorscheme tokyonight
