@@ -33,6 +33,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	 Plug 'sickill/vim-monokai'
 	 Plug 'ful1e5/onedark.nvim'
      Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
      " File and folder management
      Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -68,7 +69,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
      Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
      Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 
-
+     Plug 'nvim-treesitter/highlight.lua'
      " Git
      Plug 'tpope/vim-fugitive'
      Plug 'vim-airline/vim-airline'
@@ -112,10 +113,10 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 set relativenumber
 set number
 set nu
-" set laststatus=2
-" set fileformat=unix
+set laststatus=2
+set fileformat=unix
 syntax enable
-colorscheme onedark
+colorscheme tokyonight
 
 " set nolazyredraw
 " set clipboard=unnamedplus
@@ -246,12 +247,12 @@ au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 " air-line
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark' "change airline_theme
+let g:airline_theme='tokyonight' "change airline_theme
 let g:onedark_termcolors=256
 
 " lightline
 set noshowmode
-let g:lightline = { 'colorscheme': 'onedark' }
+let g:lightline = { 'colorscheme': 'tokyonight' }
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -325,7 +326,9 @@ nmap <leader>x :bp<bar>bd#<CR>
 
 " restore place in file from previous session
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " file browser
+let NERDTreeShowHidden=1 "this show hidden files like .git .vimrc and so on
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let NERDTreeMinimalUI = 1
 let g:nerdtree_open = 0
@@ -377,3 +380,17 @@ let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 
+
+
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:tokyonight_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
+
+" Load the colorscheme
+colorscheme tokyonight
